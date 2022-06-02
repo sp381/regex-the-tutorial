@@ -1,10 +1,14 @@
-# Title (replace with your title)
+# Regex the Tutorial
 
-Introductory paragraph (replace this with your text)
+This tutorial will is about Regular Expression, or Regex. Regex is a sequence of characters that defines a search pattern, and it is very useful in extracting information from any text.  This tutorial will help you understand the different characters that make up an expression and how to use a Regex to find certain patterns within a text.  
 
 ## Summary
 
 Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+
+
+
+
 
 ## Table of Contents
 
