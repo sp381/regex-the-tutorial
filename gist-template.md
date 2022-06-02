@@ -4,8 +4,9 @@ This tutorial will is about Regular Expression, or Regex. Regex is a sequence of
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+The sequence of characters I will use in this tutorial are as follows,  /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ 
 
+This regex is for locating a matching email. Please use the Table of Contents to follow the path I took to create this particular sequence. 
 
 
 
