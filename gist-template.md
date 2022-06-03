@@ -31,115 +31,82 @@ This regex is for locating and matching an email. Please use the Table of Conten
     Anchors match a position before, after, or between characters.
 
     Examples of Anchors: 
-    - ^ matches the position before the first character in a string.
-    - $ matches right after the last character in the string.   
-    - \A matches at the start of the string 
-    - \Z matches at the end of the string 
-    - \b matches the created word boundry 
+    - Use ^ to locate the position before the first character in a string.
+    - Use $ to locate right after the last character in the string.   
+    - Use \A to locate the start of the string 
+    - Use \Z to locate the end of the string 
+    - Use \b to match the created word boundry 
 
 
 ### Quantifiers
-    Quantifiers indicate how many of a single character must be present in the input for a match to be found. 
+    Quantifiers indicate how many of a single character must be present for a match to be found. 
 
-### The following is a list of quantifiers: 
+    A list of quantifiers: 
 
-* = Match zero or more times. 
-+ = Match 1 or more times.
-? = Match zero or one time.
-{ n } = Match an exact number amount of times.
-{ n, } = Match at least a certain number amount of times. 
-{ n, m } = Match from n to m times.
+    * = Match zero or more times. 
+    + = Match 1 or more times.
+    ? = Match zero or one time.
+    { n } = Match an exact number amount of times.
+    { n, } = Match at least a certain number amount of times. 
+    { n, m } = Match the minimum and maximum amount of a certain number. 
 
-Here are some examples for the list of quantifiers:
-
-### * example: 
-string pattern = @"\b91*9*\b";
-string input = "99 95 919 929 9119 9219 999 9919 91119";
-foreach (Match match in Regex.Matches(input, pattern))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-// The example displays the following output:
-//       '99' found at position 0.
-//       '919' found at position 6.
-//       '9119' found at position 14.
-//       '999' found at position 24.
-//       '91119' found at position 33.
-
-### + example:
-string pattern = @"\ban+\w*?\b";
-
-string input = "Autumn is a great time for an annual announcement to all antique collectors.";
-foreach (Match match in Regex.Matches(input, pattern, RegexOptions.IgnoreCase))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-// The example displays the following output:
-//       'an' found at position 27.
-//       'annual' found at position 30.
-//       'announcement' found at position 37.
-//       'antique' found at position 57.
-
-? example: 
-string pattern = @"\ban?\b";
-string input = "An amiable animal with a large snount and an animated nose.";
-foreach (Match match in Regex.Matches(input, pattern, RegexOptions.IgnoreCase))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-// The example displays the following output:
-//        'An' found at position 0.
-//        'a' found at position 23.
-//        'an' found at position 42.
-
-### { n } example:
-string pattern = @"\b\d+\,\d{3}\b";
-string input = "Sales totaled 103,524 million in January, " +
-                      "106,971 million in February, but only " +
-                      "943 million in March.";
-foreach (Match match in Regex.Matches(input, pattern))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-//  The example displays the following output:
-//        '103,524' found at position 14.
-//        '106,971' found at position 45.
-
-### { n, } example:
-string pattern = @"\b\d{2,}\b\D+";
-string input = "7 days, 10 weeks, 300 years";
-foreach (Match match in Regex.Matches(input, pattern))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-//  The example displays the following output:
-//        '10 weeks, ' found at position 8.
-//        '300 years' found at position 18.
-
-### { n, m } example: 
-string pattern = @"(00\s){2,4}";
-string input = "0x00 FF 00 00 18 17 FF 00 00 00 21 00 00 00 00 00";
-foreach (Match match in Regex.Matches(input, pattern))
-   Console.WriteLine("'{0}' found at position {1}.", match.Value, match.Index);
-
-//  The example displays the following output:
-//        '00 00 ' found at position 8.
-//        '00 00 00 ' found at position 23.
-//        '00 00 00 00 ' found at position 35.
 
 ### OR Operator
+    The syntax for the OR Operator is ||
+
+    It is a Boolean operator that will return a true value if the operands is true. If the operand is false then it will return a false value. 
 
 ### Character Classes
+    Character classes are used to distinguish between different types of characters. 
+
+    Here are just a few examples of Character Classes: 
+    /d matches any digit
+    /D matches any character other than a digit
+    /s matches a white space character, including unicode spaces
+    /S matches a single character other than white space
+    /w matches uppercase A-Z, lowercase a-z, numbers 0-9
+    . matches any character  
 
 ### Flags
 
+    Flags allow for global searching and case-insensitive searching. They are an integral part of regex and they cannot be removed or added later. 
+
+
 ### Grouping and Capturing
+
+    Grouping and Capturing is a way of matching multiple characters as a single unit. This is done by putting the regex inside a set of parentheses. 
+ 
+    An example of would be: 
+    (abc) {3} will match abcabcabc
 
 ### Bracket Expressions
 
+    Bracket Expressions matches any character within square brackets. That could be a single character or a collating element. 
+
 ### Greedy and Lazy Match
+
+    A greedy match will try and locate as many characters as possible in the pattern. That could match the longest string possible.  
+    On the other hand, a lazy match will locate the shortest string. It will repeat as minimal times as possible. 
 
 ### Boundaries
 
+    The metacharacter for boundaries is \b. It can match the first character in a string, if it is a word character. It can match the last character in a string if it is a word character. Basically, you are able to locate and match whole words. 
+
 ### Back-references
+
+    Back references are regex commands that are locating a previous part of the matched regex. They are specifed using a backslash and a single digit. 
+    Example: \2
 
 ### Look-ahead and Look-behind
 
+    Look-ahead and Look-behind are regex used to match a pattern that is followed or preceded by another pattern. 
+
+    The syntax for Look-ahead is X(?=Y) and it's saying to locate "X", but only if it's followed by Y. 
+
+    The syntax for Look-behind is (?<=Y)X and it's saying to locate "X", but only is there is Y before it. 
+
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+    Hi! My name is Sarah and I am a Fullstack Developer. I love the way coding allows the whole brain to be used through artistic design and critical thinking and problem solving. There has not been a dull moment yet and I look forward to new challenges that will help me grow as a developer. 
+
+    Follow me on GitHub https://github.com/sp381 ❤️
