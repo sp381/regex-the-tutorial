@@ -37,7 +37,7 @@ This regex is for locating and matching an email. Please use the Table of Conten
     - Use \Z to locate the end of the string 
     - Use \b to match the created word boundry 
 
-    
+    This was just a few examples, there are more anchor characters.
 
 ### Quantifiers
     Quantifiers indicate how many of a single character must be present for a match to be found. 
