@@ -30,13 +30,14 @@ This regex is for locating and matching an email. Please use the Table of Conten
 ### Anchors
     Anchors match a position before, after, or between characters.
 
-    Examples of Anchors: 
+    Some examples of Anchors: 
     - Use ^ to locate the position before the first character in a string.
     - Use $ to locate right after the last character in the string.   
     - Use \A to locate the start of the string 
     - Use \Z to locate the end of the string 
     - Use \b to match the created word boundry 
 
+    
 
 ### Quantifiers
     Quantifiers indicate how many of a single character must be present for a match to be found. 
@@ -69,19 +70,23 @@ This regex is for locating and matching an email. Please use the Table of Conten
 
 ### Flags
 
-    Flags allow for global searching and case-insensitive searching. They are an integral part of regex and they cannot be removed or added later. 
+    Flags allow for global searching and case-insensitive searching. 
+    They are an integral part of regex and they cannot be removed or added later. 
 
 
 ### Grouping and Capturing
 
     Grouping and Capturing is a way of matching multiple characters as a single unit. This is done by putting the regex inside a set of parentheses. 
  
-    An example of would be: 
-    (abc) {3} will match abcabcabc
+    The grouping from the sequence on line 7 is ([a-z0-9_\.-]+) and ([\da-z\.-]+) and ([a-z\.]{2,6})
+    
 
 ### Bracket Expressions
 
     Bracket Expressions matches any character within square brackets. That could be a single character or a collating element. 
+
+    Example using line 7's sequence:
+        [a-z0-9_\.-] , [\da-z\.-] , ([a-z\.]
 
 ### Greedy and Lazy Match
 
